@@ -3,16 +3,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ShopMicroServices.Customers.Persistence.Context
 {
-    public class ShopContext : DbContext
+    public class CustomersContext : DbContext
     {
         #region"Constructor"
-        public ShopContext(DbContextOptions<ShopContext> options) : base(options)
+        public CustomersContext(DbContextOptions<CustomersContext> options) : base(options)
         {
         }
         #endregion
 
         #region"SalesCustomers DbSt"
-        public DbSet<Domain.Entities.Customers> Customers { get; set; }
+        public DbSet<Customers.Domain.Entities.Customers> Customers { get; set; }
         #endregion
     }
 }

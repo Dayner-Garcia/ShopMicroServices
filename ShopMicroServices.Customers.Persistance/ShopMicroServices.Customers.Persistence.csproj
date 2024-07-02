@@ -15,8 +15,4 @@
     <ProjectReference Include="..\ShopMicroServices.Customers.Domain\ShopMicroServices.Customers.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Exceptions\" />
-  </ItemGroup>
-
 </Project>
