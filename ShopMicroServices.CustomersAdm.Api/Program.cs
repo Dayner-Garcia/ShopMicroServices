@@ -1,19 +1,17 @@
 using Microsoft.EntityFrameworkCore;
-using ShopMicroServices.Customers.Domain.Interfaces;
+using ShopMicroServices.Customers.IOC.Dependencies;
 using ShopMicroServices.Customers.Persistence.Context;
-using ShopMicroServices.Customers.Persistence.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connstring = builder.Configuration.GetConnectionString("CustomersContext");
-
 
 builder.Services.AddDbContext<CustomersContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("CustomersContext")));
 
-// Agregar dependencias del objeto a datos //
-builder.Services.AddScoped<ICustomersRepository, CustomersRepository>();
+//Agregar las dependencias del modulo Customers.
+
+builder.Services.AddCustomersDependency();
 
 
 builder.Services.AddControllers();

@@ -12,7 +12,7 @@ namespace ShopMicroServices.Customers.Persistence.Context
         #endregion
 
         #region"SalesCustomers DbSt"
-        public DbSet<Customers.Domain.Entities.Customers> Customers { get; set; }
+        public DbSet<Customers.Domain.Entities.Customers> SalesCustomers { get; set; }
         #endregion
     }
 }

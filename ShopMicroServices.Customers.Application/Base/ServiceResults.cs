@@ -1,5 +1,5 @@
 ﻿
-namespace ShopMicroServices.Customers.Application.Core
+namespace ShopMicroServices.Customers.Application.Base
 {
     public class ServiceResults
     {

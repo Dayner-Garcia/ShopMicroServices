@@ -1,5 +1,4 @@
 ﻿
-
 using ShopMicroService.Common.Data.Repository;
 
 namespace ShopMicroServices.Customers.Domain.Interfaces

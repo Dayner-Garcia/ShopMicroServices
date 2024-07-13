@@ -1,7 +1,8 @@
 ﻿
-namespace ShopMicroServices.Customers.Persistence.Models
+
+namespace ShopMicroServices.Customers.Application.Dtos
 {
-    public class CustomersModel
+    public abstract class DtoBase
     {
         public int CustId { get; set; }
         public string CompanyName { get; set; }
