@@ -1,8 +1,8 @@
-﻿
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using ShopMicroServices.Customers.Application.Base;
 using ShopMicroServices.Customers.Application.Contracts;
 using ShopMicroServices.Customers.Application.Dtos;
+using ShopMicroServices.Customers.Application.Extentions;
 using ShopMicroServices.Customers.Domain.Interfaces;
 
 namespace ShopMicroServices.Customers.Application.Services
@@ -41,7 +41,6 @@ namespace ShopMicroServices.Customers.Application.Services
                 result.Success = false;
                 result.Message = ex.Message;
             }
-
             return result;
         }
 
@@ -60,7 +59,6 @@ namespace ShopMicroServices.Customers.Application.Services
                 result.Success = false;
                 result.Message = ex.Message;
             }
-
             return result;
         }
 
@@ -70,12 +68,6 @@ namespace ShopMicroServices.Customers.Application.Services
             try
             {
                 var customer = customerRepository.GetEntityBy(customerDtoRemove.CustId);
-                if (customer is null)
-                {
-                    result.Success = false;
-                    result.Message = "Customer not found.";
-                    return result;
-                }
 
                 customerRepository.Remove(customer);
                 result.Message = "Customer removed successfully.";
@@ -86,7 +78,6 @@ namespace ShopMicroServices.Customers.Application.Services
                 result.Success = false;
                 result.Message = ex.Message;
             }
-
             return result;
         }
 
@@ -95,6 +86,10 @@ namespace ShopMicroServices.Customers.Application.Services
             var result = new ServiceResults();
             try
             {
+                result = customerDtoSave.IsValidCustomer();
+                if (!result.Success)
+                    return result;
+                
                 var customer = new Domain.Entities.Customers
                 {
                     Id = customerDtoSave.CustId,
@@ -121,7 +116,6 @@ namespace ShopMicroServices.Customers.Application.Services
                 result.Success = false;
                 result.Message = ex.Message;
             }
-
             return result;
         }
 
@@ -130,13 +124,11 @@ namespace ShopMicroServices.Customers.Application.Services
             var result = new ServiceResults();
             try
             {
-                var customer = customerRepository.GetEntityBy(customerDtoUpdate.CustId);
-                if (customer is null)
-                {
-                    result.Success = false;
-                    result.Message = "Customer not found.";
+                result = customerDtoUpdate.IsValidCustomer();
+                if (!result.Success)
                     return result;
-                }
+             
+                var customer = customerRepository.GetEntityBy(customerDtoUpdate.CustId);
 
                 customer.CompanyName = customerDtoUpdate.CompanyName;
                 customer.ContactName = customerDtoUpdate.ContactName;
@@ -160,7 +152,6 @@ namespace ShopMicroServices.Customers.Application.Services
                 result.Success = false;
                 result.Message = ex.Message;
             }
-
             return result;
         }
     }
