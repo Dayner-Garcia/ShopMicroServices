@@ -1,6 +1,4 @@
-﻿
-
-using ShopMicroService.Common.Data.Repository;
+﻿using ShopMicroService.Common.Data.Repository;
 
 namespace ShopMicroServices.Orders.Domain.Interfaces
 {

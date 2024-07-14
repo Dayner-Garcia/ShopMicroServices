@@ -7,11 +7,11 @@ namespace ShopMicroServices.CustomersAdm.Api.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerAdmController : ControllerBase
+    public class CustomerController : ControllerBase
     {
         private readonly ICustomersService CustomerServices;
 
-        public CustomerAdmController(ICustomersService customerServices)
+        public CustomerController(ICustomersService customerServices)
         {
             this.CustomerServices = customerServices;
         }

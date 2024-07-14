@@ -1,5 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace ShopMicroServices.Orders.Persistence.Context
 {
@@ -12,7 +11,7 @@ namespace ShopMicroServices.Orders.Persistence.Context
         #endregion
 
         #region"SalesOrders DbSt"
-        public DbSet<Orders.Domain.Entities.Orders> Orders { get; set; }
+        public DbSet<Orders.Domain.Entities.Orders> SalesOrders { get; set; }
         #endregion
     }
 }

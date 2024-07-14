@@ -52,7 +52,7 @@ namespace ShopMicroServices.Customers.Persistence.Repository
             catch (Exception ex)
             {
                 this._Logger.LogError("Error obtaining the customer.");
-                throw; // Se relanza la exepcion (Me daba un error sin esto).
+                throw;
             }
         }
 

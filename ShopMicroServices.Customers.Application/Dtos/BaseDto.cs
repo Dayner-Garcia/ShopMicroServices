@@ -2,7 +2,7 @@
 
 namespace ShopMicroServices.Customers.Application.Dtos
 {
-    public abstract class DtoBase
+    public abstract class BaseDto
     {
         public int CustId { get; set; }
         public string CompanyName { get; set; }
