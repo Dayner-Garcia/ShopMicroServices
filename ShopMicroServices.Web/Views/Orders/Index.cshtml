@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ShopMicroServices.Web.Models.OrdersBaseModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Orders</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.custId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.orderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.requiredDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shippedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shipperId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.freight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shipName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shipAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shipCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shipRegion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shipPostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shipCountry)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.custId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.requiredDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shippedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shipperId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.freight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shipName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shipAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shipCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shipRegion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shipPostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shipCountry)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

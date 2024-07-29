@@ -57,7 +57,6 @@ namespace ShopMicroServices.Web.Controllers
             {
                 try
                 {
-                    // Usa el parámetro id en la URL de la solicitud
                     var response =
                         await httpClient.GetAsync($"http://localhost:4970/api/Customer/GetCustomerById?id={id}");
                     response.EnsureSuccessStatusCode();
@@ -156,7 +155,7 @@ namespace ShopMicroServices.Web.Controllers
             }
         }
 
-// POST: CustomersController/Edit/5
+        // POST: CustomersController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(int id, CustomersBaseModel customerBaseModel)
