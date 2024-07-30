@@ -1,7 +1,18 @@
+using ShopMicroServices.Web.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add customers Dependency
+builder.Services.AddCustomersDependency();
+
+// Add orders Dependency
+builder.Services.AddOrdersDependency();
+
+// ADdd OrdersDetails Dependency
+builder.Services.AddOrdersDetailsDependency();
 
 var app = builder.Build();
 
@@ -10,6 +21,7 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
 app.UseStaticFiles();
 
 app.UseRouting();
